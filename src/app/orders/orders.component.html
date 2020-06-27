@@ -1,0 +1,24 @@
+<div *ngIf="customer">
+	<h1>Orders for {{ customer.name | capitalize }}</h1>
+	<table *ngFor="let order of orders">
+		<thead>
+			<th>Product name</th>
+			<th>Cost</th>
+		</thead>
+
+		<tbody>
+			<tr *ngFor="let orderItem of order.orderItems">
+				<td>{{ orderItem.productName }}</td>
+				<td>{{ orderItem.itemCost | currency:'EUR':'symbol' }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div *ngIf="!customer">
+	No customer found with the provided id.
+</div>
+
+<!-- use routerLink if you want to hardcode a static path -->
+<!-- use [routerLink] = "[...]" if you want to have a dynamic path that can change -->
+<a routerLink="/customers">View all customers</a>

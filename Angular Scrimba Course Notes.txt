@@ -1,0 +1,82 @@
+Angular Scrimba Course Notes
+
+tslint:
+	coding rules that need to be enforced -> more code consistency
+
+tsconfig:
+	typescript compilation settings
+
+protactor.conf:
+	for end-to-end testing. Goes hand in hand with the e2e folder
+
+package.json:
+	dependencies that are needed to run the app
+
+karma.conf:
+	for unit testing
+
+editorconfig:
+	config for editors
+
+angular-cli.json:
+	contains angular config
+
+src/app:
+	contains the angular source code
+
+src/assets:
+	gets copied when build to /dist folder.
+	contains global css files, images and icons, etc.
+
+
+==============================================================================
+
+Building Blocks of Angular:
+
+Components -> UI code. They consist of HTML and code.
+	- Building block of Angular.
+	- Consists of Code and HTML.
+		- Code consists of:
+			- imports
+			- decorators (meta-data about the component, always start with an @ symbol)
+			- class (the actual code that gets data in and out of the html template)
+	- has Selector: <some-selector> </some-selector>
+	- shouldn't know how to get data they need, or how to do business calculations. Delegate that to services.
+
+Services -> Reusable code (e.g front-end calculations, front-end validation, code that calls a server)
+
+Modules -> Organize code. Components and Services are placed in Modules. 
+
+Whatever is reusable can be placed in Services. And Services can be used in components, which render the UI.
+
+Every component you create must be part of a module
+
+
+Write value using interpolation: {{ propName }}
+Bind to DOM properties using [property] or bind-property
+Bind to DOM events using (DOM-event) or on-event
+
+Built-in directives:
+ngFor:
+	loop through a collection
+
+ngIf:
+	add or remove an element to/from the dom
+
+ngClass:
+	add or remove multiple css classes based on property values of the component
+
+ngModel:
+	two-way binding. Update view based on property value, update property value based on view value
+
+
+Each feature of the app will typically have one module associated with it.
+
+A module is like a bucket with tools (components/services) in them.
+
+
+For each feature you create a routing module, which you import in that features module.
+e.g. CustomerRoutingModule gets imported in CustomersModule
+and then the feature module gets imported in the route module
+
+Use routes to load components
